@@ -5,12 +5,16 @@ const costat2 = [];
 const contenidorC1 = document.getElementById("personatges-c1");
 const contenidorC2 = document.getElementById("personatges-c2");
 const barco = document.getElementById("barca-display");
-
 const missatgeDisplay = document.getElementById("missatge");
 
 function actualitzarInterficie() {
     // Netejar el contenidor abans de tornar a dibuixar
     contenidorC1.innerHTML = "";
+    contenidorC2.innerHTML = "";
+    barco.innerHTML = "";
+    missatgeDisplay.innerHTML = "";
+
+
 
     costat1.forEach(element => {
         const boto = document.createElement("button");
@@ -20,13 +24,16 @@ function actualitzarInterficie() {
             // Exemple de lògica: passar del costat 1 a la barca
             let index = costat1.indexOf(element);
 
+            let elementAMoure = costat1.splice(index, 1);
+
             // Mostram el missatge del que ha passat.  Recomanat només els errors
             missatgeDisplay.textContent = `Has clicat: ${index} ${element}. Hauries de moure'l a la barca!`;
+            actualitzarInterficie();
 
-            let creuarBarca = costat1.splice(index, 1);
-            barca.push(...creuarBarca)
-            console.log(costat1);
-            console.log(barca);
+            // let creuarBarca = costat1.splice(index, 1);
+            // barca.push(...creuarBarca)
+            // console.log(costat1);
+            // console.log(barca);
 
         });
 
@@ -35,6 +42,7 @@ function actualitzarInterficie() {
 
     barca.forEach(element => {
         const boto = document.createElement("button");
+        boto.appendChild(document.createElement('image'));
         boto.textContent = element;
 
         boto.addEventListener("click", () => {
@@ -43,7 +51,9 @@ function actualitzarInterficie() {
 
             // Mostram el missatge del que ha passat.  Recomanat només els errors
             missatgeDisplay.textContent = `Has clicat: ${element}. Hauries de moure'l a la barca!`;
-            creuar()
+            // creuar()
+
+
         });
 
         barco.appendChild(boto);
@@ -65,15 +75,18 @@ function actualitzarInterficie() {
         contenidorC2.appendChild(boto);
     });
 }
+// // let creuarBarca = costat1.splice(index, 1);
+// barca.push(...creuarBarca)
+// console.log(costat1);
+// console.log(barca);
+// function creuar(origen, desti, element){
+//     let index = barca.indexOf(element);
+//     let creuarcostat2 = barca.splice(index, 1);
+//     console.log(barca);
+//     console.log(costat2);
+//     barca.push(...creuarcostat2)
 
-function creuar(){
-    let index = barca.indexOf(element);
-    let creuarcostat2 = barca.splice(index, 1);
-    console.log(barca);
-    console.log(costat2);
-    barca.push(...creuarcostat2)
-
-}
+// }
 
 // function repintar(){
 //     costat1.splice(1,0,  )
@@ -81,3 +94,6 @@ function creuar(){
 
 // Inicialitzem la vista
 actualitzarInterficie();
+
+
+
