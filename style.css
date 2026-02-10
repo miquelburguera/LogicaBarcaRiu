@@ -6,12 +6,13 @@ body {
 }
 
 #regles {
-    background: #fff;
+    background: rgba(213, 194, 194, 0.11);
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 20px;
     display: inline-block;
     text-align: left;
+    border-radius: 25px;
 }
 
 #escenari {
@@ -24,17 +25,19 @@ body {
 .riba {
     width: 30%;
     min-height: 200px;
-    background-color: #d2b48c; /* Color terra */
+    background-color: rgba(161, 71, 71, 0.61); /* Color terra */
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 25px;
 }
 
 #zona-barca {
-    width: 30%;
+    width: 20%;
     min-height: 150px;
     background-color: #87ceeb; /* Color aigua */
-    border-radius: 10px;
+    border-radius: 25px;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 button {
@@ -43,7 +46,8 @@ button {
     cursor: pointer;
     background-color: #fff;
     border: 2px solid #333;
-    border-radius: 5px;
+    border-radius: 12px;
+    align-self: flex-start;
 }
 
 button:hover {
@@ -53,7 +57,7 @@ button:hover {
 #panell-missatges {
     margin-top: 30px;
     padding: 15px;
-    background: #333;
-    color: #fff;
+    background: rgba(163, 154, 154, 0.2);
+    color: #000000;
     border-radius: 5px;
 }
