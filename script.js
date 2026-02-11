@@ -1,4 +1,4 @@
-const costat1 = ["Mare", "Pare", "Fill1", "Fill2", "Filla1", "Filla2", "Policia", "Lladre"];
+const costat1 = ["👩🏻", "🧔🏻", "👦🏻", "👦🏼", "👧🏼", "👧🏻", "👮🏻‍♂️", "🥷🏽"];
 const barca = [];
 const costat2 = [];
 
@@ -16,6 +16,8 @@ function actualitzarInterficie() {
     barco.innerHTML = "";
     missatgeDisplay.innerHTML = "";
 
+
+    //quan pitjam cada persona surti del costat 1
 
     costat1.forEach(element => {
         const boto = document.createElement("button");
@@ -35,16 +37,12 @@ function actualitzarInterficie() {
             } else {
                 missatgeDisplay.textContent = `La barca esta a l'altre costat!`;
             }
-            // let creuarBarca = costat1.splice(index, 1);
-            // barca.push(...creuarBarca)
-            // console.log(costat1);
-            // console.log(barca);
 
         });
 
         contenidorC1.appendChild(boto);
     });
-
+//quan pitjam cada persona surti de la barca
     barca.forEach(element => {
         const boto = document.createElement("button");
         boto.appendChild(document.createElement('image'));
@@ -68,6 +66,8 @@ function actualitzarInterficie() {
         barco.appendChild(boto);
     });
 
+    //quan pitjam cada persona surti del costat 2
+
     costat2.forEach(element => {
         const boto = document.createElement("button");
         boto.appendChild(document.createElement('image'));
@@ -88,24 +88,32 @@ function actualitzarInterficie() {
         contenidorC2.appendChild(boto);
     });
 }
-
+  //totes les normes
 function creuar() {
 
+    //no hi pot haver més de dues persones a la barca
     if (barca.length <= 2) {
 
-        if (barca.includes('Mare') || barca.includes('Pare') || barca.includes('Policia')) {
+        //hi ha d'haver un conductor a la barca per creuar
+        if (barca.includes('👩🏻') || barca.includes('🧔🏻') || barca.includes('👮🏻‍♂️')) {
 
-            if (!costat1.includes("Lladre") || (costat1.includes("Lladre") && (costat1.includes("Policia") || costat1.length === 1))) {
+            //el 🥷🏽 no pot estar amb la familia sense el 👮🏻‍♂️ al costat 1
+            if (!costat1.includes("🥷🏽") || (costat1.includes("🥷🏽") && (costat1.includes("👮🏻‍♂️") || costat1.length === 1))) {
 
-                if (!costat2.includes("Lladre") || (costat2.includes("Lladre") && (costat2.includes("Policia") || costat2.length === 1))) {
+                //el 🥷🏽 no pot estar amb la familia sense el 👮🏻‍♂️ al costat 2
+                if (!costat2.includes("🥷🏽") || (costat2.includes("🥷🏽") && (costat2.includes("👮🏻‍♂️") || costat2.length === 1))) {
 
-                    if (!costat1.includes("Pare") || (costat1.includes("Pare") && costat1.includes("Mare")) || (costat1.includes('Pare') && !costat1.includes('Mare') && (!costat1.includes('Filla1') && (!costat1.includes('Filla2'))))) {
+                    //el 🧔🏻 no pot estar amb les filles sense la 👩🏻 al costat 1
+                    if (!costat1.includes("🧔🏻") || (costat1.includes("🧔🏻") && costat1.includes("👩🏻")) || (costat1.includes('🧔🏻') && !costat1.includes('👩🏻') && (!costat1.includes('👧🏼') && (!costat1.includes('👧🏻'))))) {
 
-                        if (!costat2.includes("Pare") || (costat2.includes("Pare") && costat2.includes("Mare")) || (costat2.includes('Pare') && !costat2.includes('Mare') && (!costat2.includes('Filla1') && (!costat2.includes('Filla2'))))) {
+                        //el 🧔🏻 no pot estar amb les filles sense la 👩🏻 al costat 2
+                        if (!costat2.includes("🧔🏻") || (costat2.includes("🧔🏻") && costat2.includes("👩🏻")) || (costat2.includes('🧔🏻') && !costat2.includes('👩🏻') && (!costat2.includes('👧🏼') && (!costat2.includes('👧🏻'))))) {
 
-                            if (!costat1.includes("Mare") || (costat1.includes("Mare") && costat1.includes("Pare")) || (costat1.includes('Mare') && !costat1.includes('Pare') && (!costat1.includes('Fill1') && (!costat1.includes('Fill2'))))) {
+                            //la 👩🏻 no pot estar amb els fills sense el 🧔🏻 al costat 1
+                            if (!costat1.includes("👩🏻") || (costat1.includes("👩🏻") && costat1.includes("🧔🏻")) || (costat1.includes('👩🏻') && !costat1.includes('🧔🏻') && (!costat1.includes('👦🏻') && (!costat1.includes('👦🏼'))))) {
 
-                                if (!costat2.includes("Mare") || (costat2.includes("Mare") && costat2.includes("Pare")) || (costat2.includes('Mare') && !costat2.includes('Pare') && (!costat2.includes('Fill1') && (!costat2.includes('Fill2'))))) {
+                                //la 👩🏻 no pot estar amb els fills sense el 🧔🏻 al costat 2
+                                if (!costat2.includes("👩🏻") || (costat2.includes("👩🏻") && costat2.includes("🧔🏻")) || (costat2.includes('👩🏻') && !costat2.includes('🧔🏻') && (!costat2.includes('👦🏻') && (!costat2.includes('👦🏼'))))) {
 
                                     moure()
 
@@ -143,6 +151,8 @@ function comprovarGuanyat(){
     }
 }
 
+
+//es canvia la barca de costat si totes les normes estan correctes
 function moure() {
 
     const boto = document.getElementById("btn-creuar");
