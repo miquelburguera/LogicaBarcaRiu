@@ -58,6 +58,7 @@ function actualitzarInterficie() {
                 costat1.push(...elementAMoure)
             } else {
                 costat2.push(...elementAMoure)
+                comprovarGuanyat();
             }
             // Mostram el missatge del que ha passat.  Recomanat només els errors
             missatgeDisplay.textContent = `Has clicat: ${element}. Hauries de moure'l a la barca!`;
@@ -115,10 +116,10 @@ function creuar() {
                                 missatgeDisplay.textContent = `La mare no pot estar amb els fills sense el pare!`;
                             }
                         } else {
-                            missatgeDisplay.textContent = `El pare no pot estar amb les filles sense la mare!2`;
+                            missatgeDisplay.textContent = `El pare no pot estar amb les filles sense la mare!`;
                         }
                     } else {
-                        missatgeDisplay.textContent = `El pare no pot estar amb les filles sense la mare!1`;
+                        missatgeDisplay.textContent = `El pare no pot estar amb les filles sense la mare!`;
                     }
                 } else {
                     missatgeDisplay.textContent = `El lladre no pot estar amb la família si no hi ha el policia!`;
@@ -127,13 +128,19 @@ function creuar() {
                 missatgeDisplay.textContent = `El lladre no pot estar amb la família si no hi ha el policia!`;
             }
         } else {
-            missatgeDisplay.textContent = `Falta un conductor!(pare,mare,policia)`;
+            missatgeDisplay.textContent = `Falta un conductor! (pare,mare,policia)`;
         }
     } else {
         missatgeDisplay.textContent = `Hi ha massa gent!`;
     }
 
 
+}
+
+function comprovarGuanyat(){
+    if (costat2.length === 8) {
+        missatgeDisplay.textContent = `HAS GUANYAT!!!!!`
+    }
 }
 
 function moure() {

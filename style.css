@@ -7,7 +7,7 @@ body {
 
 #regles {
     background: rgba(213, 194, 194, 0.11);
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     padding: 10px;
     margin-bottom: 20px;
     display: inline-block;
@@ -25,7 +25,8 @@ body {
 .riba {
     width: 30%;
     min-height: 200px;
-    background-color: rgba(161, 71, 71, 0.61); /* Color terra */
+    /*background-color: rgba(90, 163, 59, 0.91); !* Color terra *!*/
+    background-image: url("fondo2.jpg");
     padding: 10px;
     border-radius: 25px;
 }
@@ -33,7 +34,7 @@ body {
 #zona-barca {
     width: 20%;
     min-height: 150px;
-    background-color: #87ceeb; /* Color aigua */
+    background-color: #61b7d8;
     border-radius: 25px;
     padding: 10px;
     display: flex;
@@ -57,7 +58,8 @@ button:hover {
 #panell-missatges {
     margin-top: 30px;
     padding: 15px;
-    background: rgba(163, 154, 154, 0.2);
+    background: rgb(204, 204, 204);
     color: #000000;
     border-radius: 5px;
 }
+
