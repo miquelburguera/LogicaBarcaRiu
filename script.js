@@ -145,12 +145,6 @@ function creuar() {
 
 }
 
-function comprovarGuanyat(){
-    if (costat2.length === 8) {
-        missatgeDisplay.textContent = `HAS GUANYAT!!!!!`
-    }
-}
-
 
 //es canvia la barca de costat si totes les normes estan correctes
 function moure() {
